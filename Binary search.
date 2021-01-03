@@ -1,0 +1,19 @@
+function binarySearch (value, arr){
+arr.sort((a, b) => a - b);                                     //*** Make sure to sort array before use it ***//
+let firstIndex = 0, lastIndex = arr.length-1, middleIndex;
+let found = false;
+while (found === false & firstIndex <= lastIndex) {
+  middleIndex = Math.floor((firstIndex + lastIndex)/2); 
+  if (value === arr[middleIndex]) {
+    found = true;
+  } else if (value < arr[middleIndex]){
+    lastIndex = middleIndex - 1;   
+  } else {
+    firstIndex = middleIndex + 1;  
+  }
+}
+return middleIndex;
+}
+
+
+console.log(binarySearch (11, [1, 2, 85, 56, 42, 11, 23, 45, 18, 25, 6, 56, 114]))
